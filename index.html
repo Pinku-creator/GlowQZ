@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glow Quiz Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="home" class="container">
+      <h1>✨ Glow Quiz Game ✨</h1>
+      <input type="text" id="playerName" placeholder="Enter your name" />
+
+      <h3>Select Mode</h3>
+      <div class="mode-buttons">
+        <button class="mode" data-mode="traditional">Traditional</button>
+        <button class="mode" data-mode="time">Time Attack</button>
+      </div>
+
+      <h3>Select Quiz Type</h3>
+      <div class="type-buttons">
+        <button class="type" data-type="technology">Technology</button>
+        <button class="type" data-type="fashion">Fashion</button>
+        <button class="type" data-type="sports">Sports</button>
+      </div>
+    </div>
+
+    <div id="quiz" class="hidden container">
+      <header class="quiz-header">
+        <div id="timer-container" class="timer-container centered">
+          <div id="timer-text" class="timer-text"></div>
+          <div id="timer-bar" class="timer-bar">
+            <div id="timer-fill" class="timer-fill"></div>
+          </div>
+        </div>
+        <div class="score">Score: <span id="score">0</span></div>
+      </header>
+
+      <h2 id="question"></h2>
+      <div id="choices"></div>
+    </div>
+
+    <div id="end" class="hidden container">
+      <h2>Game Over!</h2>
+      <p id="finalScore"></p>
+      <button id="restart">Play Again</button>
+      <button id="downloadPdf">Download Report</button>
+
+      <div id="reviewContainer">
+        <h3>Your Answers Review</h3>
+        <div id="review"></div>
+      </div>
+    </div>
+
+    <div id="popup" class="popup">Please enter your name!</div>
+
+    <audio
+      id="correctSound"
+      src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"
+    ></audio>
+    <audio
+      id="wrongSound"
+      src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-buzz-954.mp3"
+    ></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
