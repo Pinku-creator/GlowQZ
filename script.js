@@ -138,18 +138,6 @@ function updateTimerUI(current, total) {
   timerFill.style.width = `${widthPercent}%`;
 }
 
-// function startTimer() {
-//   timeLeft = 60;
-//   timerEl.textContent = `Time: ${timeLeft}s`;
-//   timerInterval = setInterval(() => {
-//     timeLeft--;
-//     progressBar.style.width = (timeLeft / 60) * 100 + "%";
-//     progressBar.style.background = timeLeft > 20 ? "#00ffcc" : "#ff3366";
-//     timerEl.textContent = `Time: ${timeLeft}s`;
-//     if (timeLeft <= 0) endGame();
-//   }, 1000);
-// }
-
 function getNewQuestion() {
   if (questionIndex >= questions.length) {
     endGame();
@@ -172,10 +160,11 @@ function checkAnswer(selected, correct) {
   if (correctAns) {
     score += 10;
     scoreDisplay.textContent = score;
-
+    correctSound.currentTime = 0;
     correctSound.play();
     if (mode === "time") timeLeft += 2;
   } else {
+    wrongSound.currentTime = 0;
     wrongSound.play();
     if (mode === "time") timeLeft -= 5;
   }
